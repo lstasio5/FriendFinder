@@ -1,9 +1,13 @@
+//Dependencies- NPM packages
+
 var express = require("express");
 var path = require("path");
 
-// Sets up the Express App
+// Sets up express App
 // =============================================================
 var app = express();
+
+// Will work local or with Heroku
 var PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname + "/app/public")));
@@ -12,12 +16,18 @@ app.use(express.static(path.join(__dirname + "/app/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var htmlRoutes = require("./app/routing/htmlRoutes");
-app.use("/",htmlRoutes);
+//points server to routes
 
-var apiRoutes = require("./app/routing/apiRoutes");
-app.use("/api",apiRoutes);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
+//var htmlRoutes = require("./app/routing/htmlRoutes");
+//app.use("/",htmlRoutes);
+
+//var apiRoutes = require("./app/routing/apiRoutes");
+//app.use("/api",apiRoutes);
+
+//Starts server and tell us it's running
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

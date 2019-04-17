@@ -1,4 +1,4 @@
-var friends = [
+var friendsArray = [
     {
     "name":"Sarah",
     "photo":"https://kinneers.github.io/images/sarah.jpg",
@@ -35,5 +35,5 @@ var friends = [
 }
 ];
     
-module.exports = friends;
+module.exports = friendsArray;
 
