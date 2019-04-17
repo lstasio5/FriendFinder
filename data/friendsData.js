@@ -1,3 +1,5 @@
+//Setting up friends data array with two sets of pre-defined data for friends
+
 var friendsArray = [
     {
     "name":"Sarah",
