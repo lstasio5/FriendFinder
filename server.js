@@ -23,10 +23,10 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 //var htmlRoutes = require("./app/routes/htmlRoutes");
-app.use("/",htmlRoutes);
+//app.use("/",htmlRoutes);
 
 //var apiRoutes = require("./app/routes/apiRoutes");
-app.use("/api",apiRoutes);
+//app.use("/api",apiRoutes);
 
 //Starts server and tell us it's running
 app.listen(PORT, function() {
