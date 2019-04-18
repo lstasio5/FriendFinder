@@ -16,8 +16,27 @@ module.exports = function(app) {
   //Submit should send new friend data to friendData array
 
   app.post("/api/friends", function(req, res) {
-
+      console.log(friendsData.length)
       friendsData.push(req.body);
       res.json(true);
+      console.log(friendsData.length)
+      calcFriend;
 
   });}
+
+   
+    function calcFriend (answers) {
+      var topFriend = undefined;
+      var startDiff = 50;
+      var totalDiff = 0;
+      friendsData.forEach(friend => {
+        for (var i = 0; i < friend.scores.length; i++) {
+          totalDiff = totalDiff + Math.abs(answers[i] - friendsData[i]);
+        }
+        if(totalDiff < startDiff) {
+          startDiff = totalDiff;
+          topFriend = friend.name
+        }
+    });    
+    return topFriend;
+  }
